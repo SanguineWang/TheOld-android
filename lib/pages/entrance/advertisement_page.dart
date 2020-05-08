@@ -19,6 +19,9 @@ class _AdvertisementPageState extends State<AdvertisementPage> {
         time--;
         if (time != 0) {
           setState(() {});
+        }else{
+          _timer.cancel();
+          goIndexPage();
         }
       });
       return _timer;

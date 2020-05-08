@@ -50,19 +50,9 @@ class _RelativesPageState extends State<RelativesPage>
         ),
 
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Builder(builder: (BuildContext context) {
-              return IconButton(
-                icon: CircleAvatar(
-                  //圆形图标控件
-                  backgroundImage: NetworkImage(
-                     myInfo.avatar), //图片调取自网络
-                ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-              );
-            }),
+            buildUserAvatar(),
             TabBar(
               labelStyle: TextStyle(fontSize: 20),
               unselectedLabelStyle: TextStyle(fontSize: 15),
@@ -131,6 +121,21 @@ class _RelativesPageState extends State<RelativesPage>
         },
       ),
     );
+  }
+
+  Builder buildUserAvatar() {
+    return Builder(builder: (BuildContext context) {
+            return IconButton(
+              icon: CircleAvatar(
+                //圆形图标控件
+                backgroundImage: NetworkImage(
+                   myInfo.avatar), //图片调取自网络
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          });
   }
 
   Widget _getIntoMap() => IconButton(
